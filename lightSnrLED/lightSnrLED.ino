@@ -8,7 +8,8 @@ void setup() {
 
 void loop() {
   int input = analogRead(12);
-  int input_map = map(input, 0, 4095, 0, 255);
-  Serial.println(input);
+  int input_map = map(input, 900, 0, -150, 255);
+  if(input_map<=0)input_map=0;
+  Serial.println(input_map);
   ledcWrite(0, input_map);
 }
